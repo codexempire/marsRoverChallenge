@@ -40,7 +40,7 @@ This rover solutions assumes that
 3. The list of command give are within the specified range of command and will always be within that range.
 
 ### Project Specifications
-1. Reviewer has [node](https://nodejs.org/en/) install his/her local machine at least version **14.19.3**
+1. Reviewer must have [node](https://nodejs.org/en/) installed on his/her local machine at least version **14.19.3**
 ### How to run the Program
 1. git clone the repository.
 2. install package dependencies using **npm install** command.
