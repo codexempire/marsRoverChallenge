@@ -1,7 +1,7 @@
-import MarsRover from './index.js';
+import marsRover from './index.js';
 
 test("Rover should turn 90 degrees left", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "L"
     }]);
@@ -10,7 +10,7 @@ test("Rover should turn 90 degrees left", () => {
 });
 
 test("Rover should turn 90 degrees right", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "R"
     }]);
@@ -19,7 +19,7 @@ test("Rover should turn 90 degrees right", () => {
 });
 
 test("Rover should turn 180 degrees left", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "LL"
     }]);
@@ -28,7 +28,7 @@ test("Rover should turn 180 degrees left", () => {
 });
 
 test("Rover should turn 270 degrees left", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "LLL"
     }]);
@@ -37,7 +37,7 @@ test("Rover should turn 270 degrees left", () => {
 });
 
 test("Rover should turn 180 degrees right", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "RR"
     }]);
@@ -46,7 +46,7 @@ test("Rover should turn 180 degrees right", () => {
 });
 
 test("Rover should turn 270 degrees right", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "RRR"
     }]);
@@ -55,7 +55,7 @@ test("Rover should turn 270 degrees right", () => {
 });
 
 test("Rover should turn 360 degress right and face north", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "RRRR"
     }]);
@@ -64,7 +64,7 @@ test("Rover should turn 360 degress right and face north", () => {
 });
 
 test("Rover should turn 360 degress left and face north", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "LLLL"
     }]);
@@ -73,7 +73,7 @@ test("Rover should turn 360 degress left and face north", () => {
 });
 
 test("Rover should not move and remain at the starting coordinates", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: ""
     }]);
@@ -82,7 +82,7 @@ test("Rover should not move and remain at the starting coordinates", () => {
 });
 
 test("Rover should turn 90 degrees left and not move", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "LM"
     }]);
@@ -91,7 +91,7 @@ test("Rover should turn 90 degrees left and not move", () => {
 });
 
 test("Rover should turn 90 degrees right and move", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "RM"
     }]);
@@ -100,7 +100,7 @@ test("Rover should turn 90 degrees right and move", () => {
 });
 
 test("Rover should move 2 points north", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "MM"
     }]);
@@ -109,7 +109,7 @@ test("Rover should move 2 points north", () => {
 });
 
 test("Rover should move 1 points north", () => {
-    const cordinates = MarsRover("5 5", [{
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "MMRRM"
     }]);
@@ -117,8 +117,8 @@ test("Rover should move 1 points north", () => {
     expect(cordinates[0]).toBe("0 1 S")
 });
 
-test("Rover should move to be 2 2 S", () => {
-    const cordinates = MarsRover("5 5", [{
+test("Rover should move to be cordinates (2 2 S)", () => {
+    const cordinates = marsRover("5 5", [{
         cordinates: "0 0 N",
         commands: "MMRRMLMMMLMMLMLM"
     }]);
@@ -126,8 +126,8 @@ test("Rover should move to be 2 2 S", () => {
     expect(cordinates[0]).toBe("2 2 S")
 });
 
-test("Rover should move to be 2 2 S", () => {
-    const cordinates = MarsRover("5 5", [{
+test("Both Rovers should move with regards their respective commands", () => {
+    const cordinates = marsRover("5 5", [{
         cordinates: "1 2 N",
         commands: "LMLMLMLMM"
     }, {
@@ -140,8 +140,8 @@ test("Rover should move to be 2 2 S", () => {
     expect(cordinates[1]).toBe("5 1 E")
 });
 
-test("Rover should move to be 2 2 S", () => {
-    const cordinates = MarsRover("5 5", [{
+test("Two rovers can not be in the same point after the command has been implmented.", () => {
+    const cordinates = marsRover("5 5", [{
         cordinates: "1 2 N",
         commands: "LMLMLMLMM"
     }, {
@@ -150,8 +150,12 @@ test("Rover should move to be 2 2 S", () => {
     }, {
         cordinates: "1 2 N",
         commands: "LMLMLMLMM"
+    },{
+        cordinates: "1 2 N",
+        commands: "LMLMLMLMMRMMMMLMRMM"
     }]);
 
+    console.log(cordinates[3])
 
     expect(cordinates[0]).toBe("1 3 N");
     expect(cordinates[1]).toBe("5 1 E");

@@ -1,10 +1,10 @@
 import { commandsFunctions } from "./commandFunctions.js";
 
-const MarsRover = (plateauSize, roversAndCommands) => {
+const marsRover = (plateauSize, roversAndCommands) => {
     const result = [];
     const board = {
-        x: plateauSize.charAt(0),
-        y: plateauSize.charAt(1),
+        x: Number(plateauSize.charAt(0)),
+        y: Number(plateauSize.charAt(2)),
     }
 
     for (let roverIndex in roversAndCommands) {
@@ -28,4 +28,4 @@ const MarsRover = (plateauSize, roversAndCommands) => {
     return result;
 }
 
-export default MarsRover;
+export default marsRover;

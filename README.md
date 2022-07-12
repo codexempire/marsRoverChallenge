@@ -12,10 +12,10 @@ This contains the list of parameters that can be set.
 ### Info
 
 #### MarsRovers
-These are objects containing information like the **cordinate** and the **comands**
+These are objects containing information such as the **cordinate** and the **comands**
 
 ##### cordinates
-This refers to the actual positon of a rover on a plane containing the **x** and **y** axis alnong with the **direction** faced ont eh plain as a string.
+This refers to the actual positon of a rover on a plane containing the **x** and **y** axis along with the **direction** faced on the plain as a string.
 
 ##### commands
 This is a string of instructions given to the rovers. List of available commands are
@@ -35,8 +35,8 @@ This refer to the pole at which the rover point, **N** for North, **S** for sout
 
 ### Assumptions
 This rover solutions assumes that
-1. The list of rovers a deployed in a sequence.
-2. Two rovers in a list cannot be on the same point in a plane.
+1. The list of rovers a deployed and the instructions are been carried out in a sequence.
+2. Two rovers in a list cannot be on the same point in a plane after the command are ran.
 3. The list of command give are within the specified range of command and will always be within that range.
 
 ### Project Specifications

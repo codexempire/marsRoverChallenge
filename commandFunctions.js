@@ -5,6 +5,10 @@ const cardinalDirections = {
     west: "W",
 };
 
+const roverInPosition = (roversLocations, xAxis, yAxis) => {
+    return roversLocations.find(position => position.charAt(0) == xAxis && position.charAt(2) == yAxis);
+}
+
 export const commandsFunctions = {
     L(cordinates, roversLocations) {
         if (cordinates.currentRoverDirection === cardinalDirections.north) {
@@ -82,11 +86,9 @@ export const commandsFunctions = {
                 }
             }
 
-            const roverInPosition = roversLocations.find(position => position.charAt(0) == xAxis-1 && position.charAt(2) == yAxis);
-
             return {
                 ...cordinates,
-                x: roverInPosition ? xAxis : xAxis - 1,
+                x: roverInPosition(roversLocations, xAxis - 1, yAxis) ? xAxis : xAxis - 1,
             }
         }
 
@@ -97,11 +99,9 @@ export const commandsFunctions = {
                 }
             }
 
-            const roverInPosition = roversLocations.find(position => position.charAt(0) == xAxis+1 && position.charAt(2) == yAxis);
-
             return {
                 ...cordinates,
-                x: roverInPosition ? xAxis : xAxis + 1,
+                x: roverInPosition(roversLocations, xAxis + 1, yAxis) ? xAxis : xAxis + 1,
             }
         }
 
@@ -112,11 +112,9 @@ export const commandsFunctions = {
                 }
             }
 
-            const roverInPosition = roversLocations.find(position => position.charAt(0) == xAxis && position.charAt(2) == yAxis - 1);
-
             return {
                 ...cordinates,
-                y: roverInPosition ? yAxis : yAxis - 1,
+                y: roverInPosition(roversLocations, xAxis, yAxis - 1) ? yAxis : yAxis - 1,
             }
         }
 
@@ -126,11 +124,9 @@ export const commandsFunctions = {
             }
         }
 
-        const roverInPosition = roversLocations.find(position => position.charAt(0) == xAxis && position.charAt(2) == yAxis + 1);
-
         return {
             ...cordinates,
-            y: roverInPosition ? yAxis : yAxis + 1,
+            y: roverInPosition(roversLocations, xAxis, yAxis + 1) ? yAxis : yAxis + 1,
         }
     }
 }
